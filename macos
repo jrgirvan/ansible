@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## install ansible
-python3 -m pip install --user ansible
+python3 -m pip install ansible
 
 ## pull ansible
 sudo ansible-pull -U https://github.com/jrgirvan/ansible.git
