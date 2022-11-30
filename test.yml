@@ -21,4 +21,3 @@
     - name: Update Homebrew
       homebrew:
         update_homebrew: true
-      become_user: john.girvan
