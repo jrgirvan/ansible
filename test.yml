@@ -1,9 +1,6 @@
 ---
 
-- name: Network Getting Started First Playbook
-  connection: ansible.netcommon.network_cli
-  gather_facts: false
-  hosts: localhost
+- hosts: localhost
   pre_tasks:
       - name: Ensuring Homebrew Is Installed
         stat:
@@ -22,6 +19,6 @@
           - install_homebrew_if_missing
   tasks:
     - name: Update Homebrew
-      community.general.homebrew:
+      homebrew:
         update_homebrew: true
       become_user: john.girvan
