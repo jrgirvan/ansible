@@ -24,3 +24,4 @@
     - name: Update Homebrew
       community.general.homebrew:
         update_homebrew: true
+      become_user: john.girvan
