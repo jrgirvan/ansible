@@ -1,0 +1,30 @@
+- name: install aws cli
+  homebrew:
+    name:
+      - awscli
+  tags:
+    - install
+    - aws
+- name: install aws vault casks
+  homebrew_cask:
+    name:
+    - aws-vault
+  tags:
+    - install
+    - aws
+- name: install session manager cask
+  homebrew_cask:
+    name: session-manager-plugin
+    install_options:
+      - no-quarantine
+  tags:
+    - install
+    - aws
+- name: Install aec
+  community.general.pipx:
+    executable: /usr/local/bin/pipx
+    name: aec-cli
+    state: latest
+  tags:
+    - install
+    - aws

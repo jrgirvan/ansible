@@ -1,0 +1,29 @@
+- name: install core brew packages
+  homebrew:
+    name:
+      - golang
+      - koekeishiya/formulae/yabai
+      - koekeishiya/formulae/skhd
+      - cmacrae/formulae/spacebar
+  tags:
+    - install
+    - core
+        #brew "cfn-lint"
+        #brew "hadolint"
+        #
+        ## node
+        #brew "node"
+        #
+        ## java 11 is needed for Spark 3.x and TeamCity
+        #tap "AdoptOpenJDK/openjdk"
+        #cask "adoptopenjdk11"
+        #brew "maven"
+        #
+
+- name: install core brew casks
+  homebrew_cask:
+    name:
+      - alacritty
+  tags:
+    - install
+    - core

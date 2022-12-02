@@ -1,0 +1,35 @@
+- name: install python
+  homebrew:
+    name:
+      - pyenv
+      - pyenv-virtualenvwrapper
+      - pipx
+  tags:
+    - install
+    - python
+- name: install python 3.9.13
+  shell: pyenv install -s 3.9.13
+  tags:
+    - install
+    - python
+- name: set pyenv global 3.9.13
+  shell: pyenv global 3.9.13
+  tags:
+    - install
+    - python
+- name: setup virtualenvwrapper
+  shell: eval "$(pyenv init -)" && pyenv virtualenvwrapper
+  tags:
+    - install
+    - python
+- name: Install cruft
+  community.general.pipx:
+    executable: /usr/local/bin/pipx
+    name: cruft
+    state: latest
+  tags:
+    - install
+    - python
+#- name: Install tox
+#  community.general.pipx:
+#    name: tox

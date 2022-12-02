@@ -2,7 +2,6 @@
 
 ## install ansible
 python3 -m pip install ansible
-
 ## pull ansible
-ansible-pull -U https://github.com/jrgirvan/ansible.git test.yml
+#ansible-pull  -U https://github.com/jrgirvan/ansible.git test.yml
 

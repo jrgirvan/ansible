@@ -1,0 +1,37 @@
+- name: install brew packages
+  homebrew:
+    name:
+      - tmux
+      - fzf
+      - tldr
+      - ripgrep
+      - jq
+      - yq
+      - gh
+      - shellcheck
+      - ctags
+      - wget
+      - terraform
+      - k9s
+      - helm
+      - automake
+      - libtool
+  tags:
+    - install
+- name: install kubectx package
+  homebrew:
+    update_homebrew:
+    name: kubectx
+    install_options:
+      - ignore-dependencies
+  tags:
+    - install
+- name: install brew casks
+  homebrew_cask:
+    name:
+    - authy
+    - docker
+    - visual-studio-code
+  tags:
+    - install
+

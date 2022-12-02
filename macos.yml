@@ -1,5 +1,3 @@
----
-
 - hosts: localhost
   vars:
     source_key: "./.ssh/id_ed25519"
@@ -21,24 +19,27 @@
         when:
           - not homebrew_check.stat.exists
           - install_homebrew_if_missing
+      - name: Updating Homebrew
+        homebrew:
+          update_homebrew: true
+        when:
+          - homebrew_check.stat.exists
   tasks:
     - include: tasks/ssh.yml
-    #   - include: tasks/git-setup.yml
-    #   - include: tasks/core-setup.yml
-    #   - include: tasks/node-setup.yml
-    #   - include: tasks/npm-packages.yml
-    #   - include: tasks/zsh-setup.yml
+    - include: tasks/git-setup.yml
+    # - include: tasks/core-setup.yml
+    - include: tasks/macos-core-setup.yml
+    - include: tasks/python-setup.yml
+    - include: tasks/aws-setup.yml
+    - include: tasks/node-setup.yml
+    - include: tasks/npm-packages.yml
+    - include: tasks/zsh-setup.yml
     #   - include: tasks/slack-setup.yml
     #   - include: tasks/personal-projects.yml
-    #   - include: tasks/nvim-setup.yml
+    - include: tasks/nvim-setup.yml
     #   - include: tasks/brave.yml
     #   - include: tasks/debugger.yml
-    #   - include: tasks/dotfiles.yml
-    #   - include: tasks/productivity-tools.yml
+    - include: tasks/dotfiles.yml
+    - include: tasks/productivity-tools.yml
     #   - include: tasks/lsp.yml
 
-
-
-    - name: Update Homebrew
-      homebrew:
-        update_homebrew: true
